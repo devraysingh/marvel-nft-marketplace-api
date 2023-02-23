@@ -8,7 +8,7 @@ const timestamp = new Date().getTime();
 const hash = md5(timestamp + privateKey + publicKey);
 
 let characters = [];
-let ids = ["1016181", "1009368", "1009652"];
+
 
 const promoContainer = document.querySelector(".promo__container");
 const saleContainer = document.querySelector(".sale__container");
@@ -90,20 +90,22 @@ function createCard() {
   });
 }
 
+let ids = ["1016181", "1009368", "1009652"];
+
 ids.forEach((id) => {
-  axios
-    .get(
-      `http://gateway.marvel.com/v1/public/characters?id=${id}&ts=1677168023&apikey=bb8f26fe56676fa5a1b363eabd4ac42f&hash=5a8d772d0da3954f7d0c77e2ea638df6`
-    )
+  axios.get(`http://gateway.marvel.com/v1/public/characters?id=${id}&ts=1677168023&apikey=bb8f26fe56676fa5a1b363eabd4ac42f&hash=5a8d772d0da3954f7d0c77e2ea638df6`)
     .then((res) => {
       console.log("idsssss" , res);
+      const char = res.data.data.results[0];
+      topCards(char);
     })
     .catch((error) => {
-       console.log("erorrrr" ,error);
+       console.log("erorrrr", error);
     });
 });
 
 function topCards(id){
+    console.log(id);
     const card = document.createElement("div");
     const nameContainer = document.createElement("div");
     const nameText = document.createElement("p");
