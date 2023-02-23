@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+body,
+html,
+div,
+span,
+header,
+footer,
+section,
+nav,
+ul,
+li,
+a,
+blockquote,
+textarea,
+input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-style: normal;
+  font-weight: normal;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+ul,
+li,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--bg-black);
+  color: white;
+  font-family: "Open Sans", sans-serif;
+}
+
+:root {
+  --marvel-red: #ed1d24;
+  --gold: #fcc200;
+  --bg-black: #0d1821;
+  --bg-grey: #171d1c;
+}
