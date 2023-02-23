@@ -5,12 +5,16 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 1rem 6.5rem;
+  background-image: url("../assets/images/923.jpg");
+  background-size: 100%;
 }
 
 .nav__left {
   display: flex;
   justify-content: flex-start;
   width: 20%;
+  background-color: black;
+  padding: 0 2rem;
 }
 .logo__container {
   display: flex;
