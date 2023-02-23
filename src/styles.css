@@ -240,10 +240,16 @@ section {
 .card__btn {
   color: white;
   background-color: var(--marvel-red);
+  opacity: 0.8;
   border: none;
   border-radius: 7px;
   text-transform: uppercase;
   padding: 0.5rem 2rem;
+}
+.card__btn:hover {
+    cursor: pointer;
+    opacity: 1;
+
 }
 @keyframes hoverOver {
   from {

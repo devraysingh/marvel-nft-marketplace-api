@@ -59,70 +59,17 @@ function createCard() {
     const price = document.createElement("p");
     const buyBtn = document.createElement("button");
     const des = document.createElement("des");
+    const wallet = document.querySelector('#balance')
 
     nameText.innerText = character.name;
     const src = character.thumbnail.path + "." + character.thumbnail.extension;
-    console.log(src);
-    img.src = src;
-    img.alt = nameText.innerText + " card";
-    price.innerText = Math.floor(Math.random() * 10) + 0.99;
-    buyBtn.innerText = "Buy";
-
-    //adding classes
-    card.classList.add("card__bg");
-    nameContainer.classList.add("card__name");
-    nameText.classList.add("card__name__text");
-    img.classList.add("card__img");
-    imgContainer.classList.add("card__img__box");
-    buyBtn.classList.add("card__btn");
-    price.classList.add("card__price");
-    des.classList.add("card__des");
-    des.appendChild(price);
-    des.appendChild(buyBtn);
-
-    nameContainer.appendChild(nameText);
-    nameContainer.appendChild(des);
-    imgContainer.appendChild(img);
-    card.appendChild(imgContainer);
-    card.appendChild(nameContainer);
-
-    saleContainer.appendChild(card);
-  });
-}
-
-let ids = ["1016181", "1009368", "1009652"];
-
-ids.forEach((id) => {
-  axios.get(`http://gateway.marvel.com/v1/public/characters?id=${id}&ts=1677168023&apikey=bb8f26fe56676fa5a1b363eabd4ac42f&hash=5a8d772d0da3954f7d0c77e2ea638df6`)
-    .then((res) => {
-      console.log("idsssss" , res);
-      const char = res.data.data.results[0];
-      topCards(char);
-    })
-    .catch((error) => {
-       console.log("erorrrr", error);
-    });
-});
-
-function topCards(id){
-    console.log(id);
-    const card = document.createElement("div");
-    const nameContainer = document.createElement("div");
-    const nameText = document.createElement("p");
-    const imgContainer = document.createElement("div");
-    const img = document.createElement("img");
-    const price = document.createElement("p");
-    const buyBtn = document.createElement("button");
-    const des = document.createElement("des");
-  
-    nameText.innerText = id.name;
-    const src = id.thumbnail.path + "." + id.thumbnail.extension;
-    console.log(src);
-    img.src = src;
-    img.alt = nameText.innerText + " card";
-    price.innerText = Math.floor(Math.random() * 10) + 0.99;
-    buyBtn.innerText = "Buy";
-  
+    if(!src.includes("image_not_available") && saleContainer.childNodes.length < 8){
+        console.log(src);
+        img.src = src;
+        img.alt = nameText.innerText + " card";
+        price.innerText = Math.floor(Math.random() * 10) + 0.99;
+        buyBtn.innerText = "Buy";
+        
         //adding classes
         card.classList.add("card__bg");
         nameContainer.classList.add("card__name");
@@ -141,7 +88,65 @@ function topCards(id){
         card.appendChild(imgContainer);
         card.appendChild(nameContainer);
     
-        promoContainer.appendChild(card);
+        saleContainer.appendChild(card);
+
+    }
+
+  });
+}
+
+let ids = ["1016181", "1009368", "1009652"];
+
+ids.forEach((id) => {
+  axios.get(`http://gateway.marvel.com/v1/public/characters?id=${id}&ts=1677168023&apikey=bb8f26fe56676fa5a1b363eabd4ac42f&hash=5a8d772d0da3954f7d0c77e2ea638df6`)
+    .then((res) => {
+      console.log("idsssss" , res);
+      const char = res.data.data.results[0];
+      topCards(char);
+    })
+    .catch((error) => {
+       console.log("erorrrr", error);
+    });
+});
+
+// function topCards(id){
+//     console.log(id);
+//     const card = document.createElement("div");
+//     const nameContainer = document.createElement("div");
+//     const nameText = document.createElement("p");
+//     const imgContainer = document.createElement("div");
+//     const img = document.createElement("img");
+//     const price = document.createElement("p");
+//     const buyBtn = document.createElement("button");
+//     const des = document.createElement("des");
+  
+//     nameText.innerText = id.name;
+//     const src = id.thumbnail.path + "." + id.thumbnail.extension;
+//     console.log(src);
+//     img.src = src;
+//     img.alt = nameText.innerText + " card";
+//     price.innerText = Math.floor(Math.random() * 10) + 0.99;
+//     buyBtn.innerText = "Buy";
+  
+//         //adding classes
+//         card.classList.add("card__bg");
+//         nameContainer.classList.add("card__name");
+//         nameText.classList.add("card__name__text");
+//         img.classList.add("card__img");
+//         imgContainer.classList.add("card__img__box");
+//         buyBtn.classList.add("card__btn");
+//         price.classList.add("card__price");
+//         des.classList.add("card__des");
+//         des.appendChild(price);
+//         des.appendChild(buyBtn);
+    
+//         nameContainer.appendChild(nameText);
+//         nameContainer.appendChild(des);
+//         imgContainer.appendChild(img);
+//         card.appendChild(imgContainer);
+//         card.appendChild(nameContainer);
+    
+//         promoContainer.appendChild(card);
   
   
-  }
+//   }
