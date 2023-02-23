@@ -270,19 +270,24 @@ section {
 
 footer {
   display: flex;
-  padding: 2em;
+  padding: 3rem 6.5rem;
+  justify-content: center;
   align-items: center;
+  height: 400px;
   background-color: black;
+  font-size: 1.3rem;
 }
 
 .personal__bio {
   display: flex;
   width: 100%;
+  justify-content: center;
 }
 
 .person__container {
-  width: 50%;
+  width: 100%;
   display: flex;
+  justify-content: center;
   flex-direction: column;
 }
 
@@ -293,21 +298,9 @@ footer {
 }
 
 .person__element > span {
-  font-size: 18px;
+  font-size: 28px;
   padding-right: 0.5rem;
 }
 .person__element > a {
   color: var(--marvel-red);
-}
-
-.socials {
-  display: flex;
-  width: 50%;
-  align-self: flex-start;
-  margin-top: -0.5rem;
-}
-
-.social-icon {
-  opacity: 0.5;
-  padding: 1em;
 }
