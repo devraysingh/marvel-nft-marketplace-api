@@ -102,3 +102,44 @@ ids.forEach((id) => {
        console.log("erorrrr" ,error);
     });
 });
+
+function topCards(id){
+    const card = document.createElement("div");
+    const nameContainer = document.createElement("div");
+    const nameText = document.createElement("p");
+    const imgContainer = document.createElement("div");
+    const img = document.createElement("img");
+    const price = document.createElement("p");
+    const buyBtn = document.createElement("button");
+    const des = document.createElement("des");
+  
+    nameText.innerText = id.name;
+    const src = id.thumbnail.path + "." + id.thumbnail.extension;
+    console.log(src);
+    img.src = src;
+    img.alt = nameText.innerText + " card";
+    price.innerText = Math.floor(Math.random() * 10) + 0.99;
+    buyBtn.innerText = "Buy";
+  
+        //adding classes
+        card.classList.add("card__bg");
+        nameContainer.classList.add("card__name");
+        nameText.classList.add("card__name__text");
+        img.classList.add("card__img");
+        imgContainer.classList.add("card__img__box");
+        buyBtn.classList.add("card__btn");
+        price.classList.add("card__price");
+        des.classList.add("card__des");
+        des.appendChild(price);
+        des.appendChild(buyBtn);
+    
+        nameContainer.appendChild(nameText);
+        nameContainer.appendChild(des);
+        imgContainer.appendChild(img);
+        card.appendChild(imgContainer);
+        card.appendChild(nameContainer);
+    
+        promoContainer.appendChild(card);
+  
+  
+  }
